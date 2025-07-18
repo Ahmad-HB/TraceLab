@@ -1,7 +1,8 @@
 
 import { useState } from "react";
 import "../Styles/BottomPanel.css";
-import { HeroUIProvider, Button, Slider} from "@heroui/react";
+import CustomButton from "./CustomButton";
+import { HeroUIProvider, Button, Slider } from "@heroui/react";
 
 import {
   ArrowClockwise,
@@ -19,7 +20,7 @@ export default function BottomPanel() {
 
   return (
     <div className="flex flex-row gap-[10%] items-center justify-evenly h-full w-full">
-      <div className="flex-row items-center w-[15%]">
+      {/* <div className="flex-row items-center w-[15%]">
         <HeroUIProvider className="flex-row gap-3 ">
           <Button color="black" variant="bordered">
             <ArrowClockwise size={25} weight="bold" className="" />
@@ -36,7 +37,23 @@ export default function BottomPanel() {
           <Button color="primary" variant="bordered">
             <SkipForward size={25} weight="bold" className="" />
           </Button>
-        </HeroUIProvider>
+        </HeroUIProvider> */}
+      <div className="flex-row items-center w-[15%]">
+        <CustomButton >
+          <ArrowClockwise size={25} weight="bold" className="" />
+        </CustomButton>
+        <CustomButton  >
+          <SkipBack size={25} weight="bold" className="" />
+        </CustomButton>
+        <CustomButton >
+          <Play size={25} weight="bold" className="" />
+        </CustomButton>
+        <CustomButton >
+          <Pause size={25} weight="bold" className="" />
+        </CustomButton>
+        <CustomButton >
+          <SkipForward size={25} weight="bold" className="" />
+        </CustomButton>
       </div>
       <div className="w-[40%]">
         <HeroUIProvider className="">
