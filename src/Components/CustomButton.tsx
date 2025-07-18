@@ -1,11 +1,16 @@
 import React from 'react';
 
-type CustomButtonProps = {
-  children: React.ReactNode;
-  onClick?: () => void;
+// type CustomButtonProps = {
+//   children: React.ReactNode;
+//   onClick?: () => void;
+//   className?: string;
+//   type?: 'button' | 'submit' | 'reset';
+//   disabled?: boolean;
+// };
+
+type CustomButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   className?: string;
-  type?: 'button' | 'submit' | 'reset';
-  disabled?: boolean;
+  children?: React.ReactNode;
 };
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -36,14 +41,15 @@ const CustomButton: React.FC<CustomButtonProps> = ({
     <button
       onClick={onClick}
       className={`
-        flex items-center gap-3 px-6 py-4 border border-gray-200 rounded-xl
-        text-black text-xl font-medium bg-white
+        flex items-center gap-3 px-3 py-1 border border-gray-200 rounded-xl
+        bg-white
         hover:shadow-sm active:shadow-inner
         transition-all duration-150
         focus:outline-none focus:ring-2 focus:ring-gray-300
         ${className}
       `}
     >
+      {children}
     </button>
   );
 };

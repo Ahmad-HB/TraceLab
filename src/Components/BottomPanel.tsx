@@ -20,25 +20,7 @@ export default function BottomPanel() {
 
   return (
     <div className="flex flex-row gap-[10%] items-center justify-evenly h-full w-full">
-      {/* <div className="flex-row items-center w-[15%]">
-        <HeroUIProvider className="flex-row gap-3 ">
-          <Button color="black" variant="bordered">
-            <ArrowClockwise size={25} weight="bold" className="" />
-          </Button>
-          <Button color="primary" variant="bordered" size="sm" >
-            <SkipBack size={25} weight="bold" className="" />
-          </Button>
-          <Button color="primary" variant="bordered" size="sm">
-            <Play size={25} weight="bold" className="" />
-          </Button>
-          <Button color="primary" variant="bordered" size="sm">
-            <Pause size={25} weight="bold" className="" />
-          </Button>
-          <Button color="primary" variant="bordered">
-            <SkipForward size={25} weight="bold" className="" />
-          </Button>
-        </HeroUIProvider> */}
-      <div className="flex-row items-center w-[15%]">
+      <div className="flex-row align-middle justify-center flex gap-2">
         <CustomButton >
           <ArrowClockwise size={25} weight="bold" className="" />
         </CustomButton>
