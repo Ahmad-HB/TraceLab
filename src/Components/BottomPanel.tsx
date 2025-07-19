@@ -2,7 +2,7 @@
 import { useState } from "react";
 import "../Styles/BottomPanel.css";
 import CustomButton from "./CustomButton";
-import { HeroUIProvider, Button, Slider } from "@heroui/react";
+import { HeroUIProvider, Slider } from "@heroui/react";
 
 import {
   ArrowClockwise,
@@ -18,6 +18,13 @@ export default function BottomPanel() {
   let [step, setStep] = useState(0);
   let [totalSteps] = useState(20);
 
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const togglePlay = () => {
+    setIsPlaying(prev => !prev);
+    // Add logic to actually start/stop something here
+  };
+
   return (
     <div className="flex flex-row gap-[10%] items-center justify-evenly h-full w-full">
       <div className="flex-row align-middle justify-center flex gap-2">
@@ -27,24 +34,32 @@ export default function BottomPanel() {
         <CustomButton  >
           <SkipBack size={25} weight="bold" className="" />
         </CustomButton>
-        <CustomButton >
+        {/* <CustomButton >
           <Play size={25} weight="bold" className="" />
         </CustomButton>
         <CustomButton >
           <Pause size={25} weight="bold" className="" />
-        </CustomButton>
+        </CustomButton> */}
+        <CustomButton onClick={togglePlay}>
+        {isPlaying ? (
+          <Pause size={25} weight="bold" />
+        ) : (
+          <Play size={25} weight="bold" />
+        )}
+
+      </CustomButton>
         <CustomButton >
           <SkipForward size={25} weight="bold" className="" />
         </CustomButton>
       </div>
-      <div className="w-[40%]">
+      <div className=" justify-center items-center content-start w-[40%] pb-6">
         <HeroUIProvider className="">
           <Slider
             className="w-full"
             color="foreground"
             defaultValue={0}
-            label="s"
-            getValue={(step) => `${step} of ${totalSteps} Donuts`}
+            label="Step"
+            getValue={(step) => `${step} of ${totalSteps} Steps`}
             onChange={(value: number | number[]) => {
               setStep(Array.isArray(value) ? value[0] : value);
             }}
@@ -58,7 +73,7 @@ export default function BottomPanel() {
         </HeroUIProvider>
       </div>
 
-      <div className="w-[15%]">
+      <div className="justify-center items-center content-start w-[15%] pb-4">
         <HeroUIProvider className="">
           <Slider
             className="max-w-md"

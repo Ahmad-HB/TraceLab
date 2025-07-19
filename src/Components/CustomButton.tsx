@@ -47,8 +47,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         transition-all duration-150
         focus:outline-none focus:ring-2 focus:ring-gray-300
         ${className}
-      `}
-    >
+      `}>
       {children}
     </button>
   );
