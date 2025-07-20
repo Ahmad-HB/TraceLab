@@ -24,7 +24,7 @@ export default function Sidebar() {
       <HeroUIProvider className="flex justify-evenly w-full h-full pt-3">
         <Tabs fullWidth size="lg" aria-label="Options" color="default" variant="underlined" className="flex ">
           <Tab
-            key="settings"
+            key="modules"
             title={
               <div className="flex items-center space-x-2 w-full h-full">
                 <SettingsIcon />
@@ -32,7 +32,7 @@ export default function Sidebar() {
             }
           />
           <Tab
-            key="faders"
+            key="operations"
             title={
               <div className="flex items-center space-x-2 w-full h-full">
                 <FadersIcon />
