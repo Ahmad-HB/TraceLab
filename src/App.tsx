@@ -12,18 +12,18 @@ function App() {
       <div className="h-[10%] ">
         <TopControls />
       </div>
-      <div className="flex flex-row flex-grow gap-1">
-      <div className="w-[15%] border-[#969696] border-2 rounded-r-lg">
+      <div className="flex flex-row flex-grow gap-1 items-center justify-evenly h-[80%] w-full">
+      <div className="w-[15%] h-[93%] border-[#969696] border-t-2 border-r-2 border-b-2 border-l-0 rounded-r-lg">
         <Sidebar />
       </div>
-      <div className="w-[85%] border-[#969696] border-10 border-dashed rounded-lg ">
+      <div className="w-[85%] h-[93%] border-[#969696] border-10 border-dashed rounded-lg ">
         <MainView />
         <div className="content-section">
 
         </div>
       </div>
       </div>
-      <div className="flex h-[10%] justify-center items-center">
+      <div className="flex h-[10%] justify-center items-center border-[#969696] border-t-2 border-r-0 border-b-0 border-l-0">
         <BottomPanel />
       </div>
     </div>
