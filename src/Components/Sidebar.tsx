@@ -1,5 +1,6 @@
 import React from "react";
-import { Tabs, Tab, Card, CardBody } from "@heroui/react";
+import { useState, } from "react";
+import { Tabs, Tab, Card, CardBody, Listbox, ListboxItem, } from "@heroui/react";
 import { HeroUIProvider, Slider } from "@heroui/react";
 import {
   Faders,
@@ -19,8 +20,10 @@ export const SettingsIcon = () => (
 
 export default function Sidebar() {
 
+  const [selectedTab, setSelectedTab] = useState("modules");
+
   return (
-    <div className="flex justify-center w-full h-full">
+    <div className="flex flex-col justify-center w-full">
       <HeroUIProvider className="flex justify-evenly w-full h-full pt-3">
         <Tabs fullWidth size="lg" aria-label="Options" color="default" variant="underlined" className="flex ">
           <Tab
@@ -30,6 +33,7 @@ export default function Sidebar() {
                 <SettingsIcon />
               </div>
             }
+
           />
           <Tab
             key="operations"
@@ -40,6 +44,16 @@ export default function Sidebar() {
             }
           />
         </Tabs>
+      </HeroUIProvider>
+      <HeroUIProvider className=" mt-3">
+        <Listbox isVirtualized virtualization={{
+          maxListboxHeight: 640,
+          itemHeight: 40,
+        }}>
+          <ListboxItem >Option 1</ListboxItem>
+          <ListboxItem >Option 2</ListboxItem>
+          <ListboxItem >Option 3</ListboxItem>
+        </Listbox>
       </HeroUIProvider>
     </div>
 
