@@ -1,6 +1,6 @@
 export const TreeVisualizer: React.FC = () => {
   return (
-    <div className="tree-visualizer p-6">
+    <div className="tree-visualizer h-full w-full p-6">
       <h2 className="text-2xl font-bold mb-4">Tree Visualizer</h2>
       <p className="text-gray-600 mb-4">Hierarchical data structure visualization</p>
       <div className="bg-gray-100 p-4 rounded-lg">

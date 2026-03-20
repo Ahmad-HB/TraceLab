@@ -7,15 +7,11 @@
 //   )
 // }
 
-
-
-
-import React from 'react';
 // Import all DSA modules
 import StackVisualizer from '../modules/DSA/StackVisualizer';
 import ArrayVisualizer from '../modules/DSA/ArrayVisualizer';
-import { LinkedListVisualizer } from '../modules/DSA/LinkedListVisualizer';
-import {QueueVisualizer} from '../modules/DSA/QueueVisualizer';
+import LinkedListVisualizer from '../modules/DSA/LinkedListVisualizer';
+import QueueVisualizer from '../modules/DSA/QueueVisualizer';
 import {TreeVisualizer} from '../modules/DSA/TreeVisualizer';
 import {GraphVisualizer} from '../modules/DSA/GraphVisualizer';
 
@@ -26,13 +22,39 @@ import GateSimulator from '../modules/LogicGates/GateSimulator';
 
 interface MainViewProps {
   selectedModule: string | null;
+  selectedAction: string | null;
+  currentStep?: number;
+  totalSteps?: number;
+  isPlaying?: boolean;
+  animationSpeed?: number;
+  onStepChange?: (step: number) => void;
+  onTotalStepsChange?: (total: number) => void;
+  onPlayPause?: (isPlaying: boolean) => void;
+  onReset?: () => void;
+  onStepForward?: () => void;
+  onStepBackward?: () => void;
+  onSpeedChange?: (speed: number) => void;
 }
 
-export default function MainView({ selectedModule }: MainViewProps) {
+export default function MainView({ 
+  selectedModule, 
+  selectedAction, 
+  currentStep,
+  totalSteps,
+  isPlaying,
+  animationSpeed,
+  onStepChange, 
+  onTotalStepsChange,
+  onPlayPause,
+  onReset,
+  onStepForward,
+  onStepBackward,
+  onSpeedChange
+}: MainViewProps) {
   const renderModule = () => {
     if (!selectedModule) {
       return (
-        <div className="flex items-center justify-center h-full">
+        <div className="flex items-center justify-center h-full p-8">
           <div className="text-center">
             <h2 className="text-2xl font-semibold text-gray-600 mb-4">
               Welcome to CS Learning Platform
@@ -48,7 +70,20 @@ export default function MainView({ selectedModule }: MainViewProps) {
     // DSA Modules
     switch (selectedModule) {
       case 'stack':
-        return <StackVisualizer />;
+        return <StackVisualizer 
+          selectedAction={selectedAction}
+          currentStep={currentStep}
+          totalSteps={totalSteps}
+          isPlaying={isPlaying}
+          animationSpeed={animationSpeed}
+          onStepChange={onStepChange}
+          onTotalStepsChange={onTotalStepsChange}
+          onPlayPause={onPlayPause}
+          onReset={onReset}
+          onStepForward={onStepForward}
+          onStepBackward={onStepBackward}
+          onSpeedChange={onSpeedChange}
+        />;
       case 'queue':
         return <QueueVisualizer />;
       case 'array':
@@ -74,7 +109,7 @@ export default function MainView({ selectedModule }: MainViewProps) {
       
       default:
         return (
-          <div className="flex items-center justify-center h-full">
+          <div className="flex items-center justify-center h-full p-8">
             <div className="text-center">
               <h3 className="text-xl font-medium text-gray-600 mb-2">
                 Module Under Development
@@ -89,7 +124,7 @@ export default function MainView({ selectedModule }: MainViewProps) {
   };
 
   return (
-    <div className="main-view w-full h-full p-4">
+    <div className="main-view w-full h-full">
       {renderModule()}
     </div>
   );

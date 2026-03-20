@@ -84,7 +84,6 @@
 
 
 import { Tabs, Tab } from "@heroui/react";
-import React from "react";
 import { HeroUIProvider } from "@heroui/react";
 
 import {

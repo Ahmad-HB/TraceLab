@@ -7,7 +7,7 @@ import GateSimulator from '../modules/LogicGates/GateSimulator'
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/dsa/stack" element={<StackVisualizer />} />
+      <Route path="/dsa/stack" element={<StackVisualizer selectedAction={null} />} />
       <Route path="/os/scheduling" element={<SchedulingSimulator />} />
       <Route path="/binary/converter" element={<BinaryConverter />} />
       <Route path="/logic/gates" element={<GateSimulator />} />

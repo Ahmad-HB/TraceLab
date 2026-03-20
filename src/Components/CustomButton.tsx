@@ -17,8 +17,6 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   children,
   onClick,
   className = '',
-  type = 'button',
-  disabled = false,
 }) => {
   return (
     // <button
